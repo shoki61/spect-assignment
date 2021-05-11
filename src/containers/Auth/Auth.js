@@ -8,12 +8,12 @@ import appLogo from '../../assets/spectlogo2.png';
 
 import styles from './style';
 
-const Auth = () => {
+const Auth = props => {
     return <View style={styles.authContainer}>
         <ImageBackground source={backImg} style={styles.authBackImg}>
             <SImage width={120} source={appLogo}/>
             <View>
-                <Button type='dark'>login</Button>
+                <Button onPress={() => props.navigation.navigate('Login')} type='dark'>login</Button>
                 <Button type='white'>sign up</Button>
             </View>
         </ImageBackground>
