@@ -1,21 +1,22 @@
-import { StyleSheet, Dimensions } from 'react-native';
+import { StyleSheet } from 'react-native';
 
-const width = Dimensions.get('screen').width;
+import { width } from '../../../util/getDimensionsVariables';
 
 const styles = StyleSheet.create({
     button: {
-        width: width / 1.7,
+        width: width / 1.6,
         alignItems:'center',
         justifyContent:'center',
         paddingVertical: 13,
         borderRadius:5,
-        elevation:100
+        elevation:100,
+        marginVertical:15
     },
     white: {
         backgroundColor: '#fff'
     },
     dark: {
-        backgroundColor: '#2e2e2e'
+        backgroundColor: '#363636'
     },
     buttonText:{
         fontSize: 16
@@ -24,7 +25,7 @@ const styles = StyleSheet.create({
         color:'#fff'
     },
     darkText: {
-        color: '#2e2e2e'
+        color: '#363636'
     }
 });
 

@@ -8,7 +8,7 @@ const Button = props => (
         style={[styles.button,styles[props.type]]} 
         onClick={props.onClick}
     >
-        <Text style={[styles.buttonText, props.type === 'dark' ? styles.whiteText : styles.darkText]}>{props.children}</Text>
+        <Text style={[styles.buttonText , props.type === 'dark' ? styles.whiteText : styles.darkText]}>{props.children}</Text>
     </TouchableOpacity>
 );
 

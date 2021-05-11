@@ -1,14 +1,22 @@
 import React from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, ImageBackground } from 'react-native';
 import SImage from 'react-native-scalable-image';
 
 import Button from '../../components/UI/Button/Button';
+import backImg from '../../assets/boardingBg.png';
+import appLogo from '../../assets/spectlogo2.png';
 
 import styles from './style';
 
 const Auth = () => {
-    return <View>
-        <Button type='white'>login</Button>
+    return <View style={styles.authContainer}>
+        <ImageBackground source={backImg} style={styles.authBackImg}>
+            <SImage width={120} source={appLogo}/>
+            <View>
+                <Button type='dark'>login</Button>
+                <Button type='white'>sign up</Button>
+            </View>
+        </ImageBackground>
     </View>;
 };
 
