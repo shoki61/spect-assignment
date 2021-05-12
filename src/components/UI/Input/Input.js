@@ -1,8 +1,7 @@
 import React from 'react';
 import { TextInput } from 'react-native';
-import styles from '../Button/style';
 
-import style from './style';
+import styles from './style';
 
 const Input = props => {
     return <TextInput style={styles.input} value={props.value} onChange={props.onChange} placeholder={props.placeholder}/>;
