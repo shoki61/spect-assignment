@@ -6,7 +6,7 @@ import SImage from 'react-native-scalable-image';
 
 import Auth from './src/containers/Auth/Auth';
 import Login from './src/containers/Login/Login';
-import SignUp from './src/containers/SingUp/SingUp';
+import { SignUpEmail, SignUpPassword, SignUpUsername } from './src/containers/SignUp/index';
 import backIcon from './src/assets/back.png';
 import appLogo from './src/assets/spectlogo2.png';
 
@@ -40,8 +40,16 @@ const App = () => {
           component={Login}
         />
         <Stack.Screen
-          name='SignUp'
-          component={SignUp}
+          name='SignUpEmail'
+          component={SignUpEmail}
+        />
+        <Stack.Screen
+          name='SignUpPassword'
+          component={SignUpPassword}
+        />
+        <Stack.Screen
+          name='SignUpUsername'
+          component={SignUpUsername}
         />
       </Stack.Navigator>
     </NavigationContainer>
