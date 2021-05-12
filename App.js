@@ -36,9 +36,6 @@ const App = () => {
           component={Auth}
         />
         <Stack.Screen 
-          options={{
-            
-          }} 
           name="Login" 
           component={Login}
         />
