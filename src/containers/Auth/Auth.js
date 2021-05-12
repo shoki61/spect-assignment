@@ -14,7 +14,7 @@ const Auth = props => {
             <SImage width={120} source={appLogo}/>
             <View>
                 <Button onPress={() => props.navigation.navigate('Login')} type='dark'>login</Button>
-                <Button type='white'>sign up</Button>
+                <Button onPress={() => props.navigation.navigate('SignUp')} type='white'>sign up</Button>
             </View>
         </ImageBackground>
     </View>;

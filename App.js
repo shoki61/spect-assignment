@@ -1,12 +1,12 @@
 import * as React from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { TouchableOpacity } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import SImage from 'react-native-scalable-image';
 
 import Auth from './src/containers/Auth/Auth';
 import Login from './src/containers/Login/Login';
-import Button from './src/components/UI/Button/Button';
+import SignUp from './src/containers/SingUp/SingUp';
 import backIcon from './src/assets/back.png';
 import appLogo from './src/assets/spectlogo2.png';
 
@@ -32,12 +32,16 @@ const App = () => {
           options={{
             headerShown: false
           }} 
-          name="Auth" 
+          name='Auth' 
           component={Auth}
         />
         <Stack.Screen 
-          name="Login" 
+          name='Login' 
           component={Login}
+        />
+        <Stack.Screen
+          name='SignUp'
+          component={SignUp}
         />
       </Stack.Navigator>
     </NavigationContainer>
