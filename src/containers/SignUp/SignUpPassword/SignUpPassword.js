@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, ImageBackground } from 'react-native';
 import { useHeaderHeight } from '@react-navigation/stack';
+import { connect } from 'react-redux';
 import useKeyboardHeight from 'react-native-use-keyboard-height';
 import validator from 'validator';
 
@@ -9,6 +10,7 @@ import Input from '../../../components/UI/Input/Input';
 import styles from './style';
 import { height} from '../../../util/getDimensionsVariables';
 import backImg from '../../../assets/boardingBg.png';
+import * as actions from '../../../store/actions';
 
 const SignUpPassword = props => {
     const [ password, setPassword ] = useState('');
@@ -21,8 +23,9 @@ const SignUpPassword = props => {
 
     const continueSignUp = () => {
         if(validator.isLength(password, {min:8, max:16})){
-            props.navigation.navigate('SignUpUsername')
-        } else alert('Hatalı şifre')
+            props.onSignUpPassword(password);
+            props.navigation.navigate('SignUpUsername');
+        } else alert('Hatalı şifre');
     };
 
     return (
@@ -39,4 +42,10 @@ const SignUpPassword = props => {
     );
 };
 
-export default SignUpPassword;
+const mapDispatchToProps = dispatch => {
+    return {
+        onSignUpPassword: password => dispatch(actions.passwordEntered(password))
+    };
+};
+
+export default connect(null, mapDispatchToProps)(SignUpPassword);
