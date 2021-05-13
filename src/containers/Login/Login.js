@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, ImageBackground, TouchableOpacity, TextInput} from 'react-native';
 import { useHeaderHeight } from '@react-navigation/stack';
 import useKeyboardHeight from 'react-native-use-keyboard-height';
+import { connect } from 'react-redux';
 
 import Button from '../../components/UI/Button/Button';
 import Input from '../../components/UI/Input/Input';
@@ -32,4 +33,11 @@ const Login = () => {
     );
 };
 
-export default Login;
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onLogin:() => dispatch()
+    };
+};
+
+export default connect(null, mapDispatchToProps)(Login);

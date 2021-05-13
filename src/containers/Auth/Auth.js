@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, ImageBackground } from 'react-native';
+import { View, ImageBackground, Text } from 'react-native';
 import SImage from 'react-native-scalable-image';
 
 import Button from '../../components/UI/Button/Button';
@@ -19,5 +19,6 @@ const Auth = props => {
         </ImageBackground>
     </View>;
 };
+
 
 export default Auth;
