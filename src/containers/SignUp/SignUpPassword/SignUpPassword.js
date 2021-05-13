@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, ImageBackground } from 'react-native';
 import { useHeaderHeight } from '@react-navigation/stack';
 import useKeyboardHeight from 'react-native-use-keyboard-height';
+import validator from 'validator';
 
 import Button from '../../../components/UI/Button/Button';
 import Input from '../../../components/UI/Input/Input';
@@ -10,17 +11,29 @@ import { height} from '../../../util/getDimensionsVariables';
 import backImg from '../../../assets/boardingBg.png';
 
 const SignUpPassword = props => {
+    const [ password, setPassword ] = useState('');
     const keyboardHeight = useKeyboardHeight();
     const newHeight = height - useHeaderHeight();
+
+    const inputHandler = event => {
+        setPassword(event.text);
+    };
+
+    const continueSignUp = () => {
+        if(validator.isLength(password, {min:8, max:16})){
+            props.navigation.navigate('SignUpUsername')
+        } else alert('Hatalı şifre')
+    };
+
     return (
         <View style={[styles.signUpContainer, {height: newHeight}]}>
             <ImageBackground style={[styles.backImg, {paddingBottom: keyboardHeight !== 0 ? keyboardHeight + 50: null}]} source={backImg}>
                 <View style={{alignItems:'center'}}>
                     <Text style={styles.title}>choose a password</Text>
                     <Text style={styles.signUpInfo}>8-16 characters</Text>
-                    <Input placeholder='password'/>
+                    <Input value={password} onChange={inputHandler} placeholder='password'/>
                 </View>
-                <Button onPress={() => props.navigation.navigate('SignUpUsername')} type='dark'>continue</Button>
+                <Button onPress={continueSignUp} type='dark'>continue</Button>
             </ImageBackground>
         </View>
     );
