@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { View, Text, ImageBackground, TouchableOpacity } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { View, Text, ImageBackground, TouchableOpacity, ActivityIndicator } from 'react-native';
 import { useHeaderHeight } from '@react-navigation/stack';
 import useKeyboardHeight from 'react-native-use-keyboard-height';
 import { connect } from 'react-redux';
@@ -9,12 +9,17 @@ import Input from '../../components/UI/Input/Input';
 import backImg from '../../assets/boardingBg.png';
 import { height } from '../../util/getDimensionsVariables';
 import * as actions from '../../store/actions/index';
-
 import styles from './style';
 
-const Login = () => {
 
-    const [loginInputs, setLoginInputs] = useState({emailOrName:'', password:''});
+const Login = props => {
+    const [ loginInputs, setLoginInputs ] = useState({emailOrUsername:'', password:''});
+
+    const { token, error, loading } = props;
+    useEffect(() => {
+        if(token) alert('Hoş heldiniz!');
+        if(error) alert('Hatalı giriş!');
+    }, [token, error]);
 
     const keyboardHeight = useKeyboardHeight();
     const newHeight = height - useHeaderHeight();
@@ -30,7 +35,10 @@ const Login = () => {
     };
 
     const loginHandler = () => {
-
+        const { emailOrUsername, password } = loginInputs;
+        if(emailOrUsername && password){
+            props.onLogin(emailOrUsername, password);
+        } else alert('Ooopsss');
     };
 
     return (
@@ -38,14 +46,19 @@ const Login = () => {
             <ImageBackground style={[styles.backImg, {paddingBottom:keyboardHeight !== 0 ? keyboardHeight + 50: null}]} source={backImg}>
                 <View style={styles.loginContent}>
                     <Text style={styles.loginTitle}>login</Text>
-                    <Input id='emailOrName' value={loginInputs.emailOrName} onChange={inputsHandler} placeholder='email or username'/>
+                    <Input id='emailOrUsername' value={loginInputs.emailOrUsername} onChange={inputsHandler} placeholder='email or username'/>
                     <Input id='password' value={loginInputs.password} onChange={inputsHandler} placeholder='password'/>
                 </View>
                 <View style={styles.loginContent}>
                     <TouchableOpacity>
                         <Text style={styles.loginForgotButton}>forgot password?</Text>
                     </TouchableOpacity>
-                    <Button onPress={loginHandler} type='dark'>continue</Button>
+                    <Button onPress={loginHandler} type='dark'>
+                        {
+                            loading ? <ActivityIndicator color='#fff'/>
+                            : 'continue'
+                        }
+                    </Button>
                 </View>
             </ImageBackground>
         </View>
@@ -53,10 +66,18 @@ const Login = () => {
 };
 
 
-const mapDispatchToProps = dispatch => {
+const mapStateToProps = state => {
     return {
-        onLogin:(emailOrName, password) => dispatch(actions.login())
+        token: state.token,
+        error: state.error,
+        loading: state.loading
     };
 };
 
-export default connect(null, mapDispatchToProps)(Login);
+const mapDispatchToProps = dispatch => {
+    return {
+        onLogin:(emailOrUsername, password) => dispatch(actions.login(emailOrUsername, password))
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
