@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { View, Text, ImageBackground } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { View, Text, ImageBackground, ActivityIndicator } from 'react-native';
 import { useHeaderHeight } from '@react-navigation/stack';
 import { connect } from 'react-redux';
 import useKeyboardHeight from 'react-native-use-keyboard-height';
@@ -15,7 +15,13 @@ import * as actions from '../../../store/actions';
 const SignUpUsername = props => {
     const [username, setUsername] = useState('');
 
-    const { email, password, onSignUp, onSignUpUsername } = props;
+    const { email, password, onSignUp, onSignUpUsername, loading, error, token } = props;
+
+
+    useEffect(() => {
+        if(token) alert('Hoş heldin!');
+        if(error) alert('Bilinmeyen hata');
+    }, [error, token]);
 
     const keyboardHeight = useKeyboardHeight();
     const newHeight = height - useHeaderHeight();
@@ -38,7 +44,9 @@ const SignUpUsername = props => {
                     <Text style={styles.signUpInfo}>3 to 16 characters, only letters and numbers, no spaces please</Text>
                     <Input value={username} onChange={inputHandler} placeholder='username'/>
                 </View>
-                <Button onPress={continueSignUp} type='dark'>continue</Button>
+                <Button onPress={continueSignUp} type='dark'>
+                    { loading ? <ActivityIndicator color='#fff'/> : 'continue' }
+                </Button>
             </ImageBackground>
         </View>
     );
@@ -48,8 +56,9 @@ const mapStateToProps = state => {
     return {
         email: state.email,
         password: state.password,
-        loading: state.loadign,
-        error: state.error
+        loading: state.loading,
+        error: state.error,
+        token: state.token
     };
 };
 

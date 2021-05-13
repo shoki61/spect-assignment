@@ -60,7 +60,7 @@ const signUpStart = () => {
 const signUpSuccess = response => {
     return {
         type: actionTypes.SIGN_UP_SUCCESS,
-        data: 'userToken'
+        data: {token:'dsfsfsafsf5sdf5sd65fsdf656sdf'}
     };
 };
 
@@ -73,7 +73,7 @@ const signUpFail = () => {
 export const signUp = (email, password, username) => {
     return dispatch => {
         dispatch(signUpStart());
-        dispatch(signUpSuccess())
+        setTimeout(() => dispatch(signUpSuccess()), 3000)
         // axios()
         //     .then(res => dispatch(signUpSuccess(res.data)))
         //     .catch(err => dispatch(signUpFail()))
