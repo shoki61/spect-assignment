@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, ImageBackground } from 'react-native';
 import { useHeaderHeight } from '@react-navigation/stack';
+import { connect } from 'react-redux';
 import useKeyboardHeight from 'react-native-use-keyboard-height';
 import validator from 'validator';
 
@@ -9,9 +10,13 @@ import Input from '../../../components/UI/Input/Input';
 import styles from './style';
 import { height } from '../../../util/getDimensionsVariables';
 import backImg from '../../../assets/boardingBg.png';
+import * as actions from '../../../store/actions';
 
-const SignUpUsername = () => {
+const SignUpUsername = props => {
     const [username, setUsername] = useState('');
+
+    const { email, password, onSignUp, onSignUpUsername } = props;
+
     const keyboardHeight = useKeyboardHeight();
     const newHeight = height - useHeaderHeight();
 
@@ -21,7 +26,8 @@ const SignUpUsername = () => {
 
     const continueSignUp = () => {
         if(validator.isLength(username, {min:3, max: 16})){
-            alert('ok')
+            onSignUpUsername(username);
+            onSignUp(email,password, username);
         } else alert('Hatalı kullanıcı adı');
     };
     return (
@@ -38,4 +44,20 @@ const SignUpUsername = () => {
     );
 };
 
-export default SignUpUsername;
+const mapStateToProps = state => {
+    return {
+        email: state.email,
+        password: state.password,
+        loading: state.loadign,
+        error: state.error
+    };
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onSignUpUsername: username => dispatch(actions.usernameEntered(username)),
+        onSignUp: (email, password, username) => dispatch(actions.signUp(email, password, username))
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignUpUsername);

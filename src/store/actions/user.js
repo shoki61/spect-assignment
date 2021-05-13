@@ -60,7 +60,7 @@ const signUpStart = () => {
 const signUpSuccess = response => {
     return {
         type: actionTypes.SIGN_UP_SUCCESS,
-        data: response.data
+        data: 'userToken'
     };
 };
 
