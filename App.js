@@ -9,7 +9,9 @@ import SImage from 'react-native-scalable-image';
 
 import Auth from './src/containers/Auth/Auth';
 import Login from './src/containers/Login/Login';
-import { SignUpEmail, SignUpPassword, SignUpUsername } from './src/containers/SignUp/index';
+import SignUpEmail from './src/containers/SignUp/SignUpEmail/SignUpEmail';
+import SignUpPassword from './src/containers/SignUp/SignUpPassword/SignUpPassword';
+import SignUpUsername from './src/containers/SignUp/SignUpUsername/SignUpUsername';
 import backIcon from './src/assets/back.png';
 import appLogo from './src/assets/spectlogo2.png';
 import userReducer from './src/store/reducers/user';

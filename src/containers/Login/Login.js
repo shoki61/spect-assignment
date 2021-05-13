@@ -38,7 +38,7 @@ const Login = props => {
         const { emailOrUsername, password } = loginInputs;
         if(emailOrUsername && password){
             props.onLogin(emailOrUsername, password);
-        } else alert('Ooopsss');
+        } else alert('hoppoooooo');
     };
 
     return (

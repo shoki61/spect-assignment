@@ -9,7 +9,7 @@ import styles from './style';
 import { height} from '../../../util/getDimensionsVariables';
 import backImg from '../../../assets/boardingBg.png';
 
-export const SignUpPassword = props => {
+const SignUpPassword = props => {
     const keyboardHeight = useKeyboardHeight();
     const newHeight = height - useHeaderHeight();
     return (
@@ -25,3 +25,5 @@ export const SignUpPassword = props => {
         </View>
     );
 };
+
+export default SignUpPassword;

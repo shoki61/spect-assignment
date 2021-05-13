@@ -9,7 +9,7 @@ import styles from './style';
 import { height} from '../../../util/getDimensionsVariables';
 import backImg from '../../../assets/boardingBg.png';
 
-export const SignUpUsername = () => {
+const SignUpUsername = () => {
     const keyboardHeight = useKeyboardHeight();
     const newHeight = height - useHeaderHeight();
     return (
@@ -25,3 +25,5 @@ export const SignUpUsername = () => {
         </View>
     );
 };
+
+export default SignUpUsername;
