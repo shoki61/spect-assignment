@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { View, Text, TouchableOpacity, ActivityIndicator } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, TouchableOpacity, ActivityIndicator, Alert } from 'react-native';
 import { useHeaderHeight } from '@react-navigation/stack';
 import { connect } from 'react-redux';
+import validator from 'validator';
 
 import Button from '../../components/UI/Button/Button';
 import Input from '../../components/UI/Input/Input';
@@ -16,11 +17,7 @@ import BackgroundImage from '../../components/BackgroundImage/BackgroundImage';
 const Login = props => {
     const [ loginInputs, setLoginInputs ] = useState({emailOrUsername:'', password:''});
 
-    const { token, error, loading } = props;
-    useEffect(() => {
-        if(token) alert('Hoş heldiniz!');
-        if(error) alert('Hatalı giriş!');
-    }, [token, error]);
+    const { loading } = props;
 
     const newHeight = height - useHeaderHeight();
     const inputsHandler = event => {
@@ -33,11 +30,16 @@ const Login = props => {
         });
     };
 
-    const loginHandler = () => {
+    const loginHandler = async () => {
         const { emailOrUsername, password } = loginInputs;
-        if(emailOrUsername && password){
+        if(emailOrUsername && validator.isLength(password,{min:8, max:16})){
             props.onLogin(emailOrUsername, password);
-        } else alert('hoppoooooo');
+        } else {
+            Alert.alert(
+                'hoppoooooo',
+                'the password must be between 8 and 16 characters'
+            );
+        };
     };
 
     return (

@@ -1,3 +1,4 @@
+import { Alert } from 'react-native';
 import * as actionTypes from './actionTypes';
 import axios from 'axios';
 
@@ -9,6 +10,10 @@ const loginStart = () => {
 };
 
 const loginSuccess = response => {
+    Alert.alert(
+        'Success',
+        'Wellcome again'
+    );
     return {
         type: actionTypes.USER_LOGIN_SUCCESS,
         userData: response.data
@@ -16,6 +21,10 @@ const loginSuccess = response => {
 };
 
 const loginFail = () => {
+    Alert.alert(
+        'hoppoooooo',
+        'incorrect password'
+    );
     return {
         type: actionTypes.USER_LOGIN_FAIL
     };
