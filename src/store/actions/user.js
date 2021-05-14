@@ -76,11 +76,11 @@ const signUpFail = () => {
     };
 };
 
-export const signUp = (email, password, username) => {
+export const signUp = (email, password, username, policies) => {
     return dispatch => {
         dispatch(signUpStart());
         setTimeout(() => dispatch(signUpSuccess()), 3000)
-        // axios.post('https://api.spectcommunity.com/api/Auth/sign-up', {email, password, username})
+        // axios.post('https://api.spectcommunity.com/api/Auth/sign-up', {email, password, username, policies})
         //     .then(res => dispatch(signUpSuccess(res.data)))
         //     .catch(err => dispatch(signUpFail()))
     };
