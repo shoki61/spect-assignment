@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View } from 'react-native';
+import { View, Alert } from 'react-native';
 import { useHeaderHeight } from '@react-navigation/stack';
 import { connect } from 'react-redux';
 import validator from 'validator';
@@ -28,7 +28,12 @@ const SignUpUsername = props => {
         if(validator.isLength(username, {min:3, max: 16})){
             onSignUpUsername(username);
             navigation.navigate('Policy');
-        } else alert('Hatalı kullanıcı adı');
+        } else {
+            Alert.alert(
+                'hoppoooooo',
+                'username should be 3 to 16 characters, only letters and numbers, no spaces please'
+            );
+        };
     };
     return (
         <View style={[styles.signUpContainer, {height: newHeight}]}>

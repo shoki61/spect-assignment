@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View } from 'react-native';
+import { View, Alert } from 'react-native';
 import { useHeaderHeight } from '@react-navigation/stack';
 import { connect } from 'react-redux';
 import validator from 'validator';
@@ -24,7 +24,12 @@ const SignUpEmail = props => {
             props.onSignUpEmail(email);
             props.navigation.navigate('SignUpPassword');
         }
-        else alert('Geçersiz email girdiniz');
+        else {
+            Alert.alert(
+                'hoppoooooo',
+                'invalid mail'
+            );
+        };
     };
 
     const newHeight = height - useHeaderHeight();

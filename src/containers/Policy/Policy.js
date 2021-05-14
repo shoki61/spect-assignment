@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, ScrollView, ActivityIndicator } from 'react-native';
+import { View, Text, ScrollView, ActivityIndicator, Alert } from 'react-native';
 import { useHeaderHeight } from '@react-navigation/stack';
 import { connect } from 'react-redux';
 import CheckBox from 'react-native-check-box'
@@ -21,23 +21,19 @@ const Policy = props => {
         password, 
         username, 
         loading, 
-        error, 
-        token, 
         policies, 
         onSignUp, 
         onPolicy 
     } = props;
 
-    useEffect(()=> {
-        if(error) alert('hata');
-        if(token) alert('Hoş geldiniz')
-    }, [token, error]);
-
     const signUpHandler = () => {
         if(termsOfService && privacyPolicy) {
             onPolicy();
             onSignUp(email, password, username, policies);
-        } else alert('Hata');
+        } else Alert.alert(
+            'hoppoooooo',
+            'you have to agree to our user agreement, terms, of service and privicy policy to continue'
+        );
     };
 
     return (
@@ -73,8 +69,6 @@ const mapStateToProps = state => {
         password: state.password,
         username: state.username,
         loading: state.loading,
-        error: state.error,
-        token: state.token,
         policies: state.policies
     };
 };

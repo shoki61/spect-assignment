@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View } from 'react-native';
+import { View, Alert } from 'react-native';
 import { useHeaderHeight } from '@react-navigation/stack';
 import { connect } from 'react-redux';
 import validator from 'validator';
@@ -25,7 +25,12 @@ const SignUpPassword = props => {
         if(validator.isLength(password, {min:8, max:16})){
             props.onSignUpPassword(password);
             props.navigation.navigate('SignUpUsername');
-        } else alert('Hatalı şifre');
+        } else {
+            Alert.alert(
+                'hoppoooooo',
+                'the password must be between 8 and 16 characters'
+            );
+        };
     };
 
     return (

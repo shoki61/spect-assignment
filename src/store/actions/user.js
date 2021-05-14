@@ -12,7 +12,7 @@ const loginStart = () => {
 const loginSuccess = response => {
     Alert.alert(
         'Success',
-        'Wellcome again'
+        'wellcome again'
     );
     return {
         type: actionTypes.USER_LOGIN_SUCCESS,
@@ -73,6 +73,10 @@ const signUpStart = () => {
 };
 
 const signUpSuccess = response => {
+    Alert.alert(
+        'Success',
+        'wellcome'
+    )
     return {
         type: actionTypes.SIGN_UP_SUCCESS,
         data: {token:'dsfsfsafsf5sdf5sd65fsdf656sdf'}
@@ -80,6 +84,10 @@ const signUpSuccess = response => {
 };
 
 const signUpFail = () => {
+    Alert.alert(
+        'hoppoooooo',
+        'unknown error'
+    );
     return {
         type: actionTypes.SIGN_UP_FAIL
     };

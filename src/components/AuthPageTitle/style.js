@@ -5,6 +5,7 @@ const styles = StyleSheet.create({
         fontSize:18,
         color:'#363636',
         marginTop:20,
+        textAlign:'center'
     },
     subTitle:{
         color:'grey',
