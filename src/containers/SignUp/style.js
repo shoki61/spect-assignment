@@ -1,10 +1,10 @@
 import { StyleSheet } from 'react-native';
 
+import { width } from '../../util/getDimensionsVariables';
+
 const styles = StyleSheet.create({
-    backImg: {
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        flex:1
+    signUpContainer:{
+        width
     }
 });
 

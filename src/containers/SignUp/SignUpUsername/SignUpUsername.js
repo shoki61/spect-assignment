@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, ImageBackground, ActivityIndicator } from 'react-native';
+import { View, ActivityIndicator } from 'react-native';
 import { useHeaderHeight } from '@react-navigation/stack';
 import { connect } from 'react-redux';
-import useKeyboardHeight from 'react-native-use-keyboard-height';
 import validator from 'validator';
 
 import Button from '../../../components/UI/Button/Button';
 import Input from '../../../components/UI/Input/Input';
-import styles from './style';
+import styles from '../style';
 import { height } from '../../../util/getDimensionsVariables';
 import backImg from '../../../assets/boardingBg.png';
 import * as actions from '../../../store/actions';
 import AuthPageTitle from '../../../components/AuthPageTitle/AuthPageTitle';
+import BackgroundImage from '../../../components/BackgroundImage/BackgroundImage';
 
 const SignUpUsername = props => {
     const [username, setUsername] = useState('');
@@ -24,7 +24,6 @@ const SignUpUsername = props => {
         if(error) alert('Bilinmeyen hata');
     }, [error, token]);
 
-    const keyboardHeight = useKeyboardHeight();
     const newHeight = height - useHeaderHeight();
 
     const inputHandler = event => {
@@ -39,7 +38,7 @@ const SignUpUsername = props => {
     };
     return (
         <View style={[styles.signUpContainer, {height: newHeight}]}>
-            <ImageBackground style={[styles.backImg, {paddingBottom: keyboardHeight !== 0 ? keyboardHeight + 50: null}]} source={backImg}>
+            <BackgroundImage source={backImg} paddingVertical={30}>
                 <View style={{alignItems:'center'}}>
                     <AuthPageTitle title='choose your username' subTitle='3 to 16 characters, only letters and numbers, no spaces please'/>
                     <Input value={username} onChange={inputHandler} placeholder='username'/>
@@ -47,7 +46,7 @@ const SignUpUsername = props => {
                 <Button onPress={continueSignUp} type='dark'>
                     { loading ? <ActivityIndicator color='#fff'/> : 'continue' }
                 </Button>
-            </ImageBackground>
+            </BackgroundImage>
         </View>
     );
 };

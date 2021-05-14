@@ -7,12 +7,6 @@ const styles = StyleSheet.create({
     loginContainer:{
         width
     },
-    backImg:{
-        flex:1,
-        alignItems: 'center',
-        paddingVertical:25,
-        justifyContent:'space-between'
-    },
     loginContent:{
         alignItems:'center'
     },

@@ -6,12 +6,6 @@ const styles = StyleSheet.create({
     authContainer: {
         width,
         height
-    },
-    authBackImg: {
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        paddingVertical: 70,
-        flex:1
     }
 });
 
