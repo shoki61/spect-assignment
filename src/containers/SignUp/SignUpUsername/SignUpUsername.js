@@ -11,6 +11,7 @@ import styles from './style';
 import { height } from '../../../util/getDimensionsVariables';
 import backImg from '../../../assets/boardingBg.png';
 import * as actions from '../../../store/actions';
+import AuthPageTitle from '../../../components/AuthPageTitle/AuthPageTitle';
 
 const SignUpUsername = props => {
     const [username, setUsername] = useState('');
@@ -40,8 +41,7 @@ const SignUpUsername = props => {
         <View style={[styles.signUpContainer, {height: newHeight}]}>
             <ImageBackground style={[styles.backImg, {paddingBottom: keyboardHeight !== 0 ? keyboardHeight + 50: null}]} source={backImg}>
                 <View style={{alignItems:'center'}}>
-                    <Text style={styles.title}>choose your username</Text>
-                    <Text style={styles.signUpInfo}>3 to 16 characters, only letters and numbers, no spaces please</Text>
+                    <AuthPageTitle title='choose your username' subTitle='3 to 16 characters, only letters and numbers, no spaces please'/>
                     <Input value={username} onChange={inputHandler} placeholder='username'/>
                 </View>
                 <Button onPress={continueSignUp} type='dark'>

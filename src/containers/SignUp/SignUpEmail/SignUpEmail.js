@@ -11,6 +11,7 @@ import styles from './style';
 import { height} from '../../../util/getDimensionsVariables';
 import backImg from '../../../assets/boardingBg.png';
 import * as actions from '../../../store/actions'
+import AuthPageTitle from '../../../components/AuthPageTitle/AuthPageTitle';
 
 const SignUpEmail = props => {
     
@@ -32,7 +33,7 @@ const SignUpEmail = props => {
         <View style={[styles.signUpContainer, {height: newHeight}]}>
             <ImageBackground style={[styles.backImg, {paddingBottom: keyboardHeight !== 0 ? keyboardHeight + 50: null}]} source={backImg}>
                 <View style={{alignItems:'center'}}>
-                    <Text style={styles.title}>pleace enter your e-mail</Text>
+                    <AuthPageTitle title='pleace enter your e-mail'/>
                     <Input value={email} onChange={inputHandler} placeholder='youraddress@email.com'/>
                 </View>
                 <Button onPress={continueSignUp} type='dark'>continue</Button>

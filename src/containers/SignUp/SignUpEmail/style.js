@@ -11,11 +11,6 @@ const styles = StyleSheet.create({
         alignItems:'center',
         justifyContent:'space-between',
         paddingVertical:25
-    },
-    title:{
-        fontSize:18,
-        color:'#363636',
-        marginVertical:30
     }
 });
 

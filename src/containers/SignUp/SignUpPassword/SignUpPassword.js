@@ -11,6 +11,7 @@ import styles from './style';
 import { height} from '../../../util/getDimensionsVariables';
 import backImg from '../../../assets/boardingBg.png';
 import * as actions from '../../../store/actions';
+import AuthPageTitle from '../../../components/AuthPageTitle/AuthPageTitle';
 
 const SignUpPassword = props => {
     const [ password, setPassword ] = useState('');
@@ -32,8 +33,7 @@ const SignUpPassword = props => {
         <View style={[styles.signUpContainer, {height: newHeight}]}>
             <ImageBackground style={[styles.backImg, {paddingBottom: keyboardHeight !== 0 ? keyboardHeight + 50: null}]} source={backImg}>
                 <View style={{alignItems:'center'}}>
-                    <Text style={styles.title}>choose a password</Text>
-                    <Text style={styles.signUpInfo}>8-16 characters</Text>
+                    <AuthPageTitle title='choose a password' subTitle='8-16 characters'/>
                     <Input value={password} onChange={inputHandler} placeholder='password'/>
                 </View>
                 <Button onPress={continueSignUp} type='dark'>continue</Button>

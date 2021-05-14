@@ -10,6 +10,7 @@ import backImg from '../../assets/boardingBg.png';
 import { height } from '../../util/getDimensionsVariables';
 import * as actions from '../../store/actions/index';
 import styles from './style';
+import AuthPageTitle from '../../components/AuthPageTitle/AuthPageTitle';
 
 
 const Login = props => {
@@ -45,7 +46,7 @@ const Login = props => {
         <View style={[styles.loginContainer, {height: newHeight}]}>
             <ImageBackground style={[styles.backImg, {paddingBottom:keyboardHeight !== 0 ? keyboardHeight + 50: null}]} source={backImg}>
                 <View style={styles.loginContent}>
-                    <Text style={styles.loginTitle}>login</Text>
+                    <AuthPageTitle title='login'/>
                     <Input id='emailOrUsername' value={loginInputs.emailOrUsername} onChange={inputsHandler} placeholder='email or username'/>
                     <Input id='password' value={loginInputs.password} onChange={inputsHandler} placeholder='password'/>
                 </View>
