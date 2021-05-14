@@ -61,6 +61,9 @@ const App = () => {
             component={SignUpUsername}
           />
           <Stack.Screen
+            options={{
+              headerLeft: null
+            }}
             name='Policy'
             component={Policy}
           />

@@ -3,5 +3,6 @@ export {
     emailEntered,
     passwordEntered,
     usernameEntered,
+    policy,
     signUp
 } from './user';

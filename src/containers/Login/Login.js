@@ -23,7 +23,6 @@ const Login = props => {
     }, [token, error]);
 
     const newHeight = height - useHeaderHeight();
-
     const inputsHandler = event => {
         const { text, id } = event;
         setLoginInputs(prev =>{

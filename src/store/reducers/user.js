@@ -4,6 +4,7 @@ const initialState = {
     username:'',
     email:'',
     password:'',
+    policies: false,
     token: null,
     error: null,
     loading: null
@@ -45,7 +46,12 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 password: action.username
-            }
+            };
+        case actionTypes.POLICY:
+            return {
+                ...state,
+                policies: true
+            };
         case actionTypes.SIGN_UP_START:
             return {
                 ...state,
@@ -62,7 +68,7 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 loading: null,
                 error: true
-            }
+            };
         default: return state;
     };
 };

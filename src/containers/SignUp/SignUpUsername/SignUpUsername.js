@@ -16,13 +16,7 @@ import BackgroundImage from '../../../components/BackgroundImage/BackgroundImage
 const SignUpUsername = props => {
     const [username, setUsername] = useState('');
 
-    const { onSignUpUsername } = props;
-
-
-    useEffect(() => {
-        if(token) alert('Hoş heldin!');
-        if(error) alert('Bilinmeyen hata');
-    }, [error, token]);
+    const { onSignUpUsername, navigation } = props;
 
     const newHeight = height - useHeaderHeight();
 
@@ -33,6 +27,7 @@ const SignUpUsername = props => {
     const continueSignUp = () => {
         if(validator.isLength(username, {min:3, max: 16})){
             onSignUpUsername(username);
+            navigation.navigate('Policy');
         } else alert('Hatalı kullanıcı adı');
     };
     return (

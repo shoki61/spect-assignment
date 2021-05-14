@@ -51,6 +51,12 @@ export const usernameEntered = username => {
     };
 };
 
+export const policy = () => {
+    return {
+        type: actionTypes.POLICY
+    };
+};
+
 const signUpStart = () => {
     return {
         type: actionTypes.SIGN_UP_START
@@ -74,7 +80,7 @@ export const signUp = (email, password, username) => {
     return dispatch => {
         dispatch(signUpStart());
         setTimeout(() => dispatch(signUpSuccess()), 3000)
-        // axios()
+        // axios.post('https://api.spectcommunity.com/api/Auth/sign-up', {email, password, username})
         //     .then(res => dispatch(signUpSuccess(res.data)))
         //     .catch(err => dispatch(signUpFail()))
     };
