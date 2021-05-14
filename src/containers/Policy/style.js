@@ -12,7 +12,8 @@ const styles = StyleSheet.create({
         backgroundColor:'#2e2e2e',
         borderRadius:5,
         flex:1,
-        paddingHorizontal:15
+        paddingHorizontal:15,
+        marginBottom:30
     },
     infoTitle:{
         color:'#fff',
@@ -26,7 +27,17 @@ const styles = StyleSheet.create({
         color: '#fff',
         fontSize:15,
         marginVertical:20,
-        lineHeight:30
+        lineHeight:30,
+        textDecorationLine: 'none'
+    },
+    checkboxContainer: {
+        flexDirection:'row',
+        width: width - 60,
+        marginVertical:7
+    },
+    checkboxText:{
+        marginLeft:20,
+        textDecorationLine:'underline'
     }
     
 });
