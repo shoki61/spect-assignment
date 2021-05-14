@@ -12,6 +12,7 @@ import Login from './src/containers/Login/Login';
 import SignUpEmail from './src/containers/SignUp/SignUpEmail/SignUpEmail';
 import SignUpPassword from './src/containers/SignUp/SignUpPassword/SignUpPassword';
 import SignUpUsername from './src/containers/SignUp/SignUpUsername/SignUpUsername';
+import Policy from './src/containers/Policy/Policy';
 import backIcon from './src/assets/back.png';
 import appLogo from './src/assets/spectlogo2.png';
 import userReducer from './src/store/reducers/user';
@@ -58,6 +59,10 @@ const App = () => {
           <Stack.Screen
             name='SignUpUsername'
             component={SignUpUsername}
+          />
+          <Stack.Screen
+            name='Policy'
+            component={Policy}
           />
         </Stack.Navigator>
       </NavigationContainer>
