@@ -16,7 +16,17 @@ const Policy = props => {
     const [privacyPolicy, setPrivacyPolicy] = useState(false);
     const newHeight = height - useHeaderHeight();
 
-    const { email, password, username, loading, error, token, policies, onSignUp } = props;
+    const { 
+        email, 
+        password, 
+        username, 
+        loading, 
+        error, 
+        token, 
+        policies, 
+        onSignUp, 
+        onPolicy 
+    } = props;
 
     useEffect(()=> {
         if(error) alert('hata');
@@ -25,6 +35,7 @@ const Policy = props => {
 
     const signUpHandler = () => {
         if(termsOfService && privacyPolicy) {
+            onPolicy();
             onSignUp(email, password, username, policies);
         } else alert('Hata');
     };
@@ -70,6 +81,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
+        onPolicy: () => dispatch(actions.policy()),
         onSignUp: (email, password, username, policies) => dispatch(actions.signUp(email, password, username, policies))
     };
 };
