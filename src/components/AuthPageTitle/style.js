@@ -5,13 +5,15 @@ const styles = StyleSheet.create({
         fontSize:18,
         color:'#363636',
         marginTop:20,
-        textAlign:'center'
+        textAlign:'center',
+        fontFamily: 'KumbhSans-Regular'
     },
     subTitle:{
         color:'grey',
         fontSize:13,
         marginTop:10,
-        marginBottom:40
+        marginBottom:40,
+        fontFamily: 'KumbhSans-Regular'
     }
 });
 

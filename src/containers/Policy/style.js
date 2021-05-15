@@ -19,27 +19,23 @@ const styles = StyleSheet.create({
         color:'#fff',
         fontSize: 28,
         textAlign:'center',
-        fontWeight: 'bold',
         marginVertical:10,
-        lineHeight:45
+        lineHeight:45,
+        fontFamily: 'KumbhSans-Bold'
     },
     infoText: {
         color: '#fff',
         fontSize:15,
         marginVertical:20,
         lineHeight:30,
-        textDecorationLine: 'none'
+        textDecorationLine: 'none',
+        fontFamily: 'KumbhSans-Regular'
     },
     checkboxContainer: {
         flexDirection:'row',
         width: width - 60,
         marginVertical:7
-    },
-    checkboxText:{
-        marginLeft:20,
-        textDecorationLine:'underline'
     }
-    
 });
 
 export default styles;

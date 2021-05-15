@@ -10,15 +10,11 @@ const styles = StyleSheet.create({
     loginContent:{
         alignItems:'center'
     },
-    loginTitle:{
-        fontSize:18,
-        color:'#363636',
-        marginVertical:20
-    },
     loginForgotButton:{
         color: '#777',
         textDecorationLine:'underline',
-        marginVertical:20
+        marginVertical:20,
+        fontFamily: 'KumbhSans-Regular'
     }
 });
 

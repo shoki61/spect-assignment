@@ -19,7 +19,8 @@ const styles = StyleSheet.create({
         backgroundColor: '#363636'
     },
     buttonText:{
-        fontSize: 16
+        fontSize: 16,
+        fontFamily: 'KumbhSans-Regular'
     },
     whiteText: {
         color:'#fff'

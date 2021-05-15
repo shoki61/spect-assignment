@@ -11,7 +11,8 @@ const styles = StyleSheet.create({
         borderRadius:5,
         paddingVertical:7,
         borderColor:'#f5f5f5',
-        marginVertical:15
+        marginVertical:15,
+        fontFamily: 'KumbhSans-Regular'
     }
 });
 
