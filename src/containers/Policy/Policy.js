@@ -9,6 +9,7 @@ import BackgroundImage from '../../components/BackgroundImage/BackgroundImage';
 import Button from '../../components/UI/Button/Button';
 import backImg from '../../assets/boardingBg.png';
 import * as actions from '../../store/actions';
+import OpenUrlButton from '../../components/UI/OpenUrlButton/OpenUrlButton';
 import styles from './style';
 
 const Policy = props => {
@@ -46,11 +47,11 @@ const Policy = props => {
                 </ScrollView>
                 <View style={styles.checkboxContainer}>
                     <CheckBox isChecked={termsOfService} onClick={() => setTermsOfService(!termsOfService)}/>
-                    <Text style={styles.checkboxText}>agree to terms of service</Text>
+                    <OpenUrlButton url='https://www.spectplatform.com/termsandconditions'>agree to terms of service</OpenUrlButton>
                 </View>
                 <View style={styles.checkboxContainer}>
                     <CheckBox isChecked={privacyPolicy} onClick={() => setPrivacyPolicy(!privacyPolicy)}/>
-                    <Text style={styles.checkboxText}>agree to privacy policy</Text>
+                    <OpenUrlButton url='https://www.spectplatform.com/privacypolicy'>agree to privacy policy</OpenUrlButton>
                 </View>
                 <Button onPress={signUpHandler} type='white'>
                     {

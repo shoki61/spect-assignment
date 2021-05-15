@@ -16,7 +16,7 @@ const OpenUrlButton = ({url, children}) => {
     };
     return (
         <TouchableOpacity onPress={urlHandle}>
-            <Text>{children}</Text>
+            <Text style={styles.url}>{children}</Text>
         </TouchableOpacity>
     );
 };
