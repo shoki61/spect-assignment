@@ -40,7 +40,7 @@ const SignUpUsername = props => {
             <BackgroundImage source={backImg} paddingVertical={30}>
                 <View style={{alignItems:'center'}}>
                     <AuthPageTitle title='choose your username' subTitle='3 to 16 characters, only letters and numbers, no spaces please'/>
-                    <Input value={username} onChange={inputHandler} placeholder='username'/>
+                    <Input autoFocus value={username} onChange={inputHandler} placeholder='username'/>
                 </View>
                 <Button onPress={continueSignUp} type='dark'>continue</Button>
             </BackgroundImage>

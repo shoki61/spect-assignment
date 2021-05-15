@@ -47,8 +47,8 @@ const Login = props => {
             <BackgroundImage source={backImg} paddingVertical={30}>
                 <View style={styles.loginContent}>
                     <AuthPageTitle title='login'/>
-                    <Input id='emailOrUsername' value={loginInputs.emailOrUsername} onChange={inputsHandler} placeholder='email or username'/>
-                    <Input id='password' value={loginInputs.password} onChange={inputsHandler} placeholder='password'/>
+                    <Input autoFocus id='emailOrUsername' value={loginInputs.emailOrUsername} onChange={inputsHandler} placeholder='email or username'/>
+                    <Input id='password' password value={loginInputs.password} onChange={inputsHandler} placeholder='password'/>
                 </View>
                 <View style={styles.loginContent}>
                     <TouchableOpacity>

@@ -38,7 +38,7 @@ const SignUpEmail = props => {
             <BackgroundImage source={backImg} paddingVertical={30}>
                 <View style={{alignItems:'center'}}>
                     <AuthPageTitle title='pleace enter your e-mail'/>
-                    <Input value={email} onChange={inputHandler} placeholder='youraddress@email.com'/>
+                    <Input type='email-address' autoFocus value={email} onChange={inputHandler} placeholder='youraddress@email.com'/>
                 </View>
                 <Button onPress={continueSignUp} type='dark'>continue</Button>
             </BackgroundImage>

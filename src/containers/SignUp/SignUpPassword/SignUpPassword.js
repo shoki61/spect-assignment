@@ -38,7 +38,7 @@ const SignUpPassword = props => {
             <BackgroundImage source={backImg} paddingVertical={30}>
                 <View style={{alignItems:'center'}}>
                     <AuthPageTitle title='choose a password' subTitle='8-16 characters'/>
-                    <Input value={password} onChange={inputHandler} placeholder='password'/>
+                    <Input password autoFocus value={password} onChange={inputHandler} placeholder='password'/>
                 </View>
                 <Button onPress={continueSignUp} type='dark'>continue</Button>
             </BackgroundImage>
